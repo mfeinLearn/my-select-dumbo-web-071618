@@ -3,13 +3,18 @@ require 'pry'
 def my_select(collection)
  # your code here!
    i = 0
-  answer = []
+  new_array = []
   
-  while i < collection.size
-  
-      answer << yield(collection[i])
+  if collection.length > 0
+  while i < collection.length
+    if yield(collection[i])
+        new_array << collection[i]
+      end
       i = i + 1
     #binding.pry
   end 
-  answer
+else
+  puts "Empty collection"
+end 
+  new_array
 end
